@@ -1,0 +1,6 @@
+{
+  "name": "Pick One! – Would You Rather",
+  "description": "A fun, lightweight Would You Rather? game where players choose between funny, difficult, surprising, or thought-provoking options offline.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
