@@ -8,6 +8,7 @@ import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.FullScreenContentCallback
 import com.google.android.gms.ads.LoadAdError
 import com.google.android.gms.ads.MobileAds
+import com.google.android.gms.ads.RequestConfiguration
 import com.google.android.gms.ads.interstitial.InterstitialAd
 import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback
 
@@ -19,6 +20,11 @@ object AdManager {
 
     fun initialize(context: Context) {
         if (isInitialized) return
+        val testConfig = RequestConfiguration.Builder()
+            .setTestDeviceIds(listOf(AdRequest.DEVICE_ID_EMULATOR))
+            .build()
+        MobileAds.setRequestConfiguration(testConfig)
+
         MobileAds.initialize(context) { status ->
             Log.d(TAG, "MobileAds initialized: $status")
             isInitialized = true
@@ -33,7 +39,7 @@ object AdManager {
         val adRequest = AdRequest.Builder().build()
         InterstitialAd.load(
             context,
-            AdConfig.INTERSTITIAL_AD_UNIT_ID,
+            AdConfig.getInterstitialAdUnitId(),
             adRequest,
             object : InterstitialAdLoadCallback() {
                 override fun onAdLoaded(ad: InterstitialAd) {
