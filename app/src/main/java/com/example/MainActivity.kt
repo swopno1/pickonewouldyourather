@@ -26,4 +26,16 @@ class MainActivity : ComponentActivity() {
             }
         }
     }
+
+    override fun onTrimMemory(level: Int) {
+        super.onTrimMemory(level)
+        if (level >= TRIM_MEMORY_UI_HIDDEN) {
+            com.example.util.SoundVibeHelper.release()
+        }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        com.example.util.SoundVibeHelper.release()
+    }
 }

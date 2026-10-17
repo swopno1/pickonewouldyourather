@@ -420,4 +420,18 @@ object QuestionRepository {
             )
         )
     )
+
+    private val questionsByCategory: Map<QuestionCategory, List<Question>> by lazy {
+        QuestionCategory.entries.associateWith { category ->
+            if (category == QuestionCategory.ALL) sampleQuestions
+            else sampleQuestions.filter { it.category == category }
+        }
+    }
+
+    /**
+     * Returns pre-filtered question list without allocating new collections on each recomposition.
+     */
+    fun getQuestionsForCategory(category: QuestionCategory): List<Question> {
+        return questionsByCategory[category] ?: sampleQuestions
+    }
 }

@@ -39,6 +39,9 @@ fun AdBannerView(
                     adUnitId = AdConfig.getBannerAdUnitId()
                     loadAd(AdRequest.Builder().build())
                 }
+            },
+            onRelease = { adView ->
+                adView.destroy()
             }
         )
     }

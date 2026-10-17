@@ -13,25 +13,39 @@ import android.widget.Toast
 object SoundVibeHelper {
     private var toneGenerator: ToneGenerator? = null
 
-    init {
-        try {
-            toneGenerator = ToneGenerator(AudioManager.STREAM_MUSIC, 60)
-        } catch (_: Exception) {
-            toneGenerator = null
+    private fun getToneGenerator(): ToneGenerator? {
+        if (toneGenerator == null) {
+            try {
+                toneGenerator = ToneGenerator(AudioManager.STREAM_MUSIC, 60)
+            } catch (_: Exception) {
+                toneGenerator = null
+            }
         }
+        return toneGenerator
+    }
+
+    /**
+     * Releases the native ToneGenerator audio track and frees OS audio buffers.
+     * Called during onTrimMemory or onDestroy.
+     */
+    fun release() {
+        try {
+            toneGenerator?.release()
+        } catch (_: Exception) {}
+        toneGenerator = null
     }
 
     fun playSelectionSound(soundEnabled: Boolean) {
         if (!soundEnabled) return
         try {
-            toneGenerator?.startTone(ToneGenerator.TONE_PROP_BEEP, 80)
+            getToneGenerator()?.startTone(ToneGenerator.TONE_PROP_BEEP, 80)
         } catch (_: Exception) {}
     }
 
     fun playNextSound(soundEnabled: Boolean) {
         if (!soundEnabled) return
         try {
-            toneGenerator?.startTone(ToneGenerator.TONE_PROP_ACK, 70)
+            getToneGenerator()?.startTone(ToneGenerator.TONE_PROP_ACK, 70)
         } catch (_: Exception) {}
     }
 

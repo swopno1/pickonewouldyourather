@@ -29,11 +29,7 @@ data class GameUiState(
     val votesB: Int = 0
 ) {
     val filteredQuestions: List<Question>
-        get() = if (selectedCategory == QuestionCategory.ALL) {
-            QuestionRepository.sampleQuestions
-        } else {
-            QuestionRepository.sampleQuestions.filter { it.category == selectedCategory }
-        }
+        get() = QuestionRepository.getQuestionsForCategory(selectedCategory)
 
     val currentQuestion: Question?
         get() {
