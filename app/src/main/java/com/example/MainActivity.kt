@@ -5,7 +5,9 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
+import com.example.ads.AdConfig
 import com.example.ads.AdManager
+import com.example.ads.ConsentManager
 import com.example.ui.screens.MainGameScreen
 import com.example.ui.theme.MyApplicationTheme
 import com.example.viewmodel.GameViewModel
@@ -17,8 +19,19 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
 
-        // Initialize Google Mobile Ads SDK with provided App ID and preload interstitial
-        AdManager.initialize(this)
+        // Gather UMP consent first; Mobile Ads only initializes with clearance.
+        // The game stays fully playable even if ads never initialize.
+        try {
+            ConsentManager.gatherConsent(this) { canRequestAds ->
+                AdConfig.setAdsConsent(canRequestAds)
+                if (!canRequestAds) return@gatherConsent
+                try {
+                    AdManager.initialize(this@MainActivity)
+                } catch (_: Throwable) {
+                }
+            }
+        } catch (_: Throwable) {
+        }
 
         setContent {
             MyApplicationTheme {

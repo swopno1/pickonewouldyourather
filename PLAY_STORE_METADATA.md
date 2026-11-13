@@ -8,7 +8,7 @@
 
 ## 1. App Title
 `Pick One! – Would You Rather`  
-*(30 characters exact - fully compliant with Google Play title length policy)*
+*(28 characters - within the 30-character limit; verified 2026-11-12)*
 
 ---
 
@@ -35,7 +35,7 @@ Whether you are hanging out with best friends, chilling on a family road trip, b
 ### 🔥 What Makes Pick One! Special:
 
 ✨ **100% Offline Gameplay**  
-No Wi-Fi? No cellular data? No problem! The complete question library is stored locally on your device. Play anywhere—on airplanes, subways, or camping trips.
+No Wi-Fi? No cellular data? No problem! The complete question library is stored locally on your device. Play anywhere—on airplanes, subways, or camping trips. (Free with ads; internet required for ads only, served subject to your consent choices where applicable.)
 
 ✨ **Rich & Diverse Categories**  
 Explore a wide range of hand-curated categories:

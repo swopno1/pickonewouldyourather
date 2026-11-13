@@ -160,7 +160,8 @@ class GameViewModel : ViewModel() {
         val header = if (isBn) "🤔 আপনি কোনটি বেছে নেবেন? (Would You Rather?)" else "🤔 Would You Rather?"
         val optA = if (isBn) "🅰️ ${q.optionA.iconEmoji} ${q.optionA.textBn}" else "🅰️ ${q.optionA.iconEmoji} ${q.optionA.textEn}"
         val optB = if (isBn) "🅱️ ${q.optionB.iconEmoji} ${q.optionB.textBn}" else "🅱️ ${q.optionB.iconEmoji} ${q.optionB.textEn}"
-        val footer = if (isBn) "খেলাটি উপভোগ করুন Pick One! অ্যাপে 📲✨\n© ViveScript Solutions LLC" else "Play Pick One! – Would You Rather 📲✨\n© ViveScript Solutions LLC"
+        val storeLink = "https://play.google.com/store/apps/details?id=com.vivescriptsolutions.pickonewouldyourather"
+        val footer = if (isBn) "খেলাটি উপভোগ করুন Pick One! অ্যাপে 📲✨\n$storeLink\n© ViveScript Solutions LLC" else "Play Pick One! – Would You Rather 📲✨\n$storeLink\n© ViveScript Solutions LLC"
         return "$header\n\n$optA\n\n— বা / OR —\n\n$optB\n\n$footer"
     }
 }

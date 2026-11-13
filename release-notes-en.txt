@@ -1,0 +1,8 @@
+What's new in Pick One! 3.0:
+
+• Privacy controls: new Ad Privacy Options in About; ads now respect your consent choices
+• Full Bengali coverage across options, badges, and accessibility labels
+• Every share now includes a Play Store install link
+• Faster, leaner build with updated SDKs and fixed store listing
+
+Gameplay stays fully offline — no account needed.

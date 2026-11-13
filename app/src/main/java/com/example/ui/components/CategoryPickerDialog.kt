@@ -49,6 +49,7 @@ fun CategoryPickerDialog(
     onCategorySelected: (QuestionCategory) -> Unit,
     onDismiss: () -> Unit
 ) {
+    val isBn = language == Language.BANGLA
     AlertDialog(
         onDismissRequest = onDismiss,
         modifier = Modifier.testTag("category_picker_dialog"),
@@ -69,7 +70,7 @@ fun CategoryPickerDialog(
                 IconButton(onClick = onDismiss) {
                     Icon(
                         imageVector = Icons.Default.Close,
-                        contentDescription = "Close",
+                        contentDescription = if (isBn) "বন্ধ করুন" else "Close",
                         tint = TextLightSecondary
                     )
                 }
@@ -80,7 +81,7 @@ fun CategoryPickerDialog(
                 modifier = Modifier.fillMaxWidth(),
                 verticalArrangement = Arrangement.spacedBy(8.dp)
             ) {
-                items(QuestionCategory.values()) { category ->
+                items(QuestionCategory.entries) { category ->
                     val isSelected = category == currentCategory
                     Row(
                         modifier = Modifier
@@ -110,7 +111,7 @@ fun CategoryPickerDialog(
                         if (isSelected) {
                             Icon(
                                 imageVector = Icons.Default.Check,
-                                contentDescription = "Active",
+                                contentDescription = if (isBn) "সক্রিয়" else "Active",
                                 tint = PrimaryOrange,
                                 modifier = Modifier.size(20.dp)
                             )

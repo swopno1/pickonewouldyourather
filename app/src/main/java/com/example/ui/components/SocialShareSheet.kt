@@ -57,6 +57,7 @@ fun SocialShareSheet(
     onDismiss: () -> Unit
 ) {
     val context = LocalContext.current
+    val isBn = language == Language.BANGLA
     val sheetState: SheetState = rememberModalBottomSheetState(skipPartiallyExpanded = true)
 
     ModalBottomSheet(
@@ -89,7 +90,7 @@ fun SocialShareSheet(
                 IconButton(onClick = onDismiss) {
                     Icon(
                         imageVector = Icons.Default.Close,
-                        contentDescription = "Close",
+                        contentDescription = if (isBn) "বন্ধ করুন" else "Close",
                         tint = TextLightSecondary
                     )
                 }
@@ -119,7 +120,7 @@ fun SocialShareSheet(
                     name = "WhatsApp",
                     backgroundColor = Color(0xFF25D366),
                     onClick = {
-                        shareToSpecificApp(context, shareText, "com.whatsapp", onDismiss)
+                        shareToSpecificApp(context, shareText, "com.whatsapp", isBn, onDismiss)
                     }
                 )
 
@@ -128,7 +129,7 @@ fun SocialShareSheet(
                     name = "Instagram",
                     backgroundColor = Color(0xFFE1306C),
                     onClick = {
-                        shareToSpecificApp(context, shareText, "com.instagram.android", onDismiss)
+                        shareToSpecificApp(context, shareText, "com.instagram.android", isBn, onDismiss)
                     }
                 )
 
@@ -137,13 +138,13 @@ fun SocialShareSheet(
                     name = "TikTok",
                     backgroundColor = Color(0xFF000000),
                     onClick = {
-                        shareToSpecificApp(context, shareText, "com.zhiliaoapp.musically", onDismiss)
+                        shareToSpecificApp(context, shareText, "com.zhiliaoapp.musically", isBn, onDismiss)
                     }
                 )
 
                 SocialActionButton(
                     iconText = "🔗",
-                    name = "Copy",
+                    name = if (isBn) "কপি" else "Copy",
                     backgroundColor = Color(0xFF475569),
                     onClick = {
                         SoundVibeHelper.copyToClipboard(
@@ -164,7 +165,7 @@ fun SocialShareSheet(
                     .fillMaxWidth()
                     .clip(RoundedCornerShape(16.dp))
                     .clickable {
-                        SoundVibeHelper.shareQuestion(context, shareText)
+                        SoundVibeHelper.shareQuestion(context, shareText, language)
                         onDismiss()
                     }
                     .testTag("more_share_options_button"),
@@ -180,7 +181,7 @@ fun SocialShareSheet(
                 ) {
                     Icon(
                         imageVector = Icons.Default.Share,
-                        contentDescription = "More share options",
+                        contentDescription = if (isBn) "আরও শেয়ার অপশন" else "More share options",
                         tint = PureWhite,
                         modifier = Modifier.size(20.dp)
                     )
@@ -237,6 +238,7 @@ private fun shareToSpecificApp(
     context: Context,
     text: String,
     packageName: String,
+    isBn: Boolean,
     onComplete: () -> Unit
 ) {
     try {
@@ -253,7 +255,7 @@ private fun shareToSpecificApp(
             type = "text/plain"
             putExtra(Intent.EXTRA_TEXT, text)
         }
-        context.startActivity(Intent.createChooser(fallback, "Share via"))
+        context.startActivity(Intent.createChooser(fallback, if (isBn) "শেয়ার করুন" else "Share via"))
         onComplete()
     }
 }

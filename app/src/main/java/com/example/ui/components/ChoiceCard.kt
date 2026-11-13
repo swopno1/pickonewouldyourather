@@ -60,6 +60,7 @@ fun ChoiceCard(
 ) {
     val isSelected = userSelection == optionType
     val hasVoted = userSelection != ChoiceSelection.NONE
+    val isBn = language == Language.BANGLA
     val scaleAnim by animateFloatAsState(
         targetValue = if (isSelected) 1.02f else if (hasVoted) 0.98f else 1.0f,
         animationSpec = tween(durationMillis = 300, easing = FastOutSlowInEasing),
@@ -107,7 +108,11 @@ fun ChoiceCard(
                             .padding(horizontal = 12.dp, vertical = 6.dp)
                     ) {
                         Text(
-                            text = if (optionType == ChoiceSelection.OPTION_A) "OPTION A" else "OPTION B",
+                            text = if (optionType == ChoiceSelection.OPTION_A) {
+                                if (isBn) "অপশন এ" else "OPTION A"
+                            } else {
+                                if (isBn) "অপশন বি" else "OPTION B"
+                            },
                             fontSize = 12.sp,
                             fontWeight = FontWeight.Bold,
                             color = PureWhite
@@ -151,14 +156,18 @@ fun ChoiceCard(
                                 if (isSelected) {
                                     Icon(
                                         imageVector = Icons.Default.CheckCircle,
-                                        contentDescription = "Selected",
+                                        contentDescription = if (isBn) "নির্বাচিত" else "Selected",
                                         tint = PureWhite,
                                         modifier = Modifier.size(18.dp)
                                     )
                                     Spacer(modifier = Modifier.size(6.dp))
                                 }
                                 Text(
-                                    text = if (isSelected) "You Picked!" else "Other Players",
+                                    text = if (isSelected) {
+                                        if (isBn) "তুমি বেছেছ!" else "You Picked!"
+                                    } else {
+                                        if (isBn) "অন্যান্য খেলোয়াড়" else "Other Players"
+                                    },
                                     fontSize = 13.sp,
                                     fontWeight = FontWeight.Bold,
                                     color = PureWhite

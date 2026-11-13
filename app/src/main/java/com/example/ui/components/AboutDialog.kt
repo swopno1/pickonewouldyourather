@@ -19,20 +19,23 @@ import androidx.compose.material.icons.filled.Close
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
-import androidx.compose.material3.Divider
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.BuildConfig
+import com.example.ads.ConsentManager
 import com.example.model.Language
 import com.example.ui.theme.DarkSurface
 import com.example.ui.theme.DarkSurfaceVariant
@@ -68,7 +71,7 @@ fun AboutDialog(
                 IconButton(onClick = onDismiss) {
                     Icon(
                         imageVector = Icons.Default.Close,
-                        contentDescription = "Close",
+                        contentDescription = if (isBn) "বন্ধ করুন" else "Close",
                         tint = TextLightSecondary
                     )
                 }
@@ -102,7 +105,7 @@ fun AboutDialog(
                 )
 
                 Text(
-                    text = "Version 1.0.0",
+                    text = "Version ${BuildConfig.VERSION_NAME}",
                     fontSize = 12.sp,
                     color = TextLightSecondary,
                     textAlign = TextAlign.Center
@@ -114,9 +117,9 @@ fun AboutDialog(
 
                 Text(
                     text = if (isBn)
-                        "একটি আকর্ষণীয় ও হালকা Would You Rather? গেম। বন্ধুদের সাথে আড্ডায়, পার্টিতে বা অবসরে উপভোগ করুন দারুণ সব মজার প্রশ্ন। কোনো ইন্টারনেট বা অ্যাকাউন্ট ছাড়াই ১০০% অফলাইনে কাজ করে।"
+                        "একটি আকর্ষণীয় ও হালকা Would You Rather? গেম। বন্ধুদের সাথে আড্ডায়, পার্টিতে বা অবসরে উপভোগ করুন দারুণ সব মজার প্রশ্ন। গেমপ্লে সম্পূর্ণ অফলাইনে চলে; শুধু বিজ্ঞাপনে ইন্টারনেট লাগে।"
                     else
-                        "A delightfully light, entertaining Would You Rather? party game. Perfect for sparking conversations, family games, road trips, and social laughs completely offline.",
+                        "A delightfully light, entertaining Would You Rather? party game. Perfect for sparking conversations, family games, road trips, and social laughs. Gameplay works fully offline; only ads need internet.",
                     fontSize = 14.sp,
                     color = PureWhite.copy(alpha = 0.9f),
                     textAlign = TextAlign.Center,
@@ -133,7 +136,7 @@ fun AboutDialog(
                         .padding(12.dp)
                 ) {
                     Text(
-                        text = "Developed by:",
+                        text = if (isBn) "ডেভেলপার:" else "Developed by:",
                         fontSize = 12.sp,
                         color = TextLightSecondary
                     )
@@ -147,7 +150,7 @@ fun AboutDialog(
                     Spacer(modifier = Modifier.height(8.dp))
 
                     Text(
-                        text = "Copyright:",
+                        text = if (isBn) "কপিরাইট:" else "Copyright:",
                         fontSize = 12.sp,
                         color = TextLightSecondary
                     )
@@ -161,20 +164,41 @@ fun AboutDialog(
                     Spacer(modifier = Modifier.height(8.dp))
 
                     Text(
-                        text = "License:",
+                        text = if (isBn) "লাইসেন্স:" else "License:",
                         fontSize = 12.sp,
                         color = TextLightSecondary
                     )
                     Text(
-                        text = "Source code: MIT License",
+                        text = if (isBn) "সোর্স কোড: MIT লাইসেন্স" else "Source code: MIT License",
                         fontSize = 13.sp,
                         color = PureWhite
                     )
                     Text(
-                        text = "Branding & artwork: Proprietary ViveScript Solutions LLC",
+                        text = if (isBn) "ব্র্যান্ডিং ও আর্টওয়ার্ক: স্বত্বাধীন ViveScript Solutions LLC"
+                        else "Branding & artwork: Proprietary ViveScript Solutions LLC",
                         fontSize = 12.sp,
                         color = TextLightSecondary
                     )
+                }
+
+                val privacyContext = LocalContext.current
+                val privacyActivity = privacyContext as? android.app.Activity
+                if (privacyActivity != null && ConsentManager.isPrivacyOptionsRequired(privacyContext)) {
+                    Spacer(modifier = Modifier.height(12.dp))
+                    OutlinedButton(
+                        onClick = { ConsentManager.showPrivacyOptions(privacyActivity) },
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .testTag("ad_privacy_options_button"),
+                        shape = RoundedCornerShape(12.dp)
+                    ) {
+                        Text(
+                            text = if (isBn) "বিজ্ঞাপন গোপনীয়তা সেটিংস" else "Ad Privacy Options",
+                            color = PureWhite,
+                            fontWeight = FontWeight.SemiBold,
+                            fontSize = 13.sp
+                        )
+                    }
                 }
             }
         },

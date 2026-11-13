@@ -33,7 +33,7 @@ object AdManager {
     }
 
     fun loadInterstitial(context: Context) {
-        if (!AdConfig.isAdsEnabled || isLoadingInterstitial || interstitialAd != null) return
+        if (!AdConfig.canShowAdsFlow() || isLoadingInterstitial || interstitialAd != null) return
 
         isLoadingInterstitial = true
         val adRequest = AdRequest.Builder().build()

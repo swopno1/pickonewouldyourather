@@ -16,7 +16,7 @@
 - **Is all data encrypted in transit?**  
   **YES.** All AdMob network communications use secure TLS/HTTPS.
 - **Can users request data deletion?**  
-  **No / Not Applicable.** ViveScript does not store user accounts or personal profiles. Users can reset their advertising ID in Android device settings.
+  **Yes.** Uninstalling removes all on-device data; no accounts exist. Users can also reset their advertising ID in Android device settings. No server-side data exists to delete.
 - **Does this app require an account?**  
   **NO.** The application is completely account-free.
 

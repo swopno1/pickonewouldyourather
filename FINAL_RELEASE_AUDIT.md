@@ -1,5 +1,7 @@
 # Final Release Audit & Verification Report
 
+> **SUPERSEDED (2026-11-12):** This v1.0-era audit is preserved for history. It is stale: it describes versionCode 1 (code is now 3.0/3), cites a `/production_build/*.aab` that was never committed, and predates UMP consent, per-variant ad units, and the BN/listing fixes. The current audit is `ANDROID_AUDIT_REPORT.md` and the current verdict is `PRODUCTION_READINESS.md`.
+
 **Application:** Pick One! – Would You Rather  
 **Publisher:** ViveScript Solutions LLC  
 **Date of Audit:** October 2026  

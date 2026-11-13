@@ -68,13 +68,14 @@ object SoundVibeHelper {
         } catch (_: Exception) {}
     }
 
-    fun shareQuestion(context: Context, shareText: String) {
+    fun shareQuestion(context: Context, shareText: String, language: com.example.model.Language) {
         val sendIntent = Intent().apply {
             action = Intent.ACTION_SEND
             putExtra(Intent.EXTRA_TEXT, shareText)
             type = "text/plain"
         }
-        val shareIntent = Intent.createChooser(sendIntent, "Share Question via")
+        val title = if (language == com.example.model.Language.BANGLA) "প্রশ্ন শেয়ার করুন" else "Share Question via"
+        val shareIntent = Intent.createChooser(sendIntent, title)
         context.startActivity(shareIntent)
     }
 

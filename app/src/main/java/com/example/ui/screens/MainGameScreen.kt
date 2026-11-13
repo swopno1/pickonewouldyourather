@@ -340,7 +340,7 @@ fun TopGameHeader(
                 Spacer(modifier = Modifier.width(4.dp))
                 Icon(
                     imageVector = Icons.Default.Category,
-                    contentDescription = "Change Category",
+                    contentDescription = if (currentLanguage == Language.BANGLA) "ক্যাটাগরি বদলান" else "Change Category",
                     tint = TextLightSecondary,
                     modifier = Modifier.size(16.dp)
                 )
@@ -389,7 +389,7 @@ fun TopGameHeader(
                 ) {
                     Icon(
                         imageVector = if (isSoundEnabled) Icons.AutoMirrored.Filled.VolumeUp else Icons.AutoMirrored.Filled.VolumeMute,
-                        contentDescription = "Toggle Sound",
+                        contentDescription = if (currentLanguage == Language.BANGLA) "সাউন্ড চালু/বন্ধ" else "Toggle Sound",
                         tint = if (isSoundEnabled) PureWhite else TextLightSecondary,
                         modifier = Modifier.size(20.dp)
                     )
@@ -411,7 +411,7 @@ fun TopGameHeader(
                 ) {
                     Icon(
                         imageVector = Icons.Default.Info,
-                        contentDescription = "About",
+                        contentDescription = if (currentLanguage == Language.BANGLA) "সম্পর্কে" else "About",
                         tint = PureWhite,
                         modifier = Modifier.size(20.dp)
                     )
@@ -500,7 +500,7 @@ fun BottomActionBar(
         ) {
             Icon(
                 imageVector = Icons.AutoMirrored.Filled.ArrowBack,
-                contentDescription = "Previous Question",
+                contentDescription = if (isBangla) "আগের প্রশ্ন" else "Previous Question",
                 tint = PureWhite,
                 modifier = Modifier.size(20.dp)
             )
@@ -518,7 +518,7 @@ fun BottomActionBar(
             Row(verticalAlignment = Alignment.CenterVertically) {
                 Icon(
                     imageVector = Icons.Default.Share,
-                    contentDescription = "Share",
+                    contentDescription = if (isBangla) "শেয়ার" else "Share",
                     tint = PureWhite,
                     modifier = Modifier.size(18.dp)
                 )
@@ -557,7 +557,7 @@ fun BottomActionBar(
                 Spacer(modifier = Modifier.width(6.dp))
                 Icon(
                     imageVector = Icons.AutoMirrored.Filled.ArrowForward,
-                    contentDescription = "Next",
+                    contentDescription = if (isBangla) "পরেরটি" else "Next",
                     tint = PureWhite,
                     modifier = Modifier.size(18.dp)
                 )

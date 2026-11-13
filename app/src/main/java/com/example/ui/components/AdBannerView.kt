@@ -21,7 +21,8 @@ import com.google.android.gms.ads.AdView
 fun AdBannerView(
     modifier: Modifier = Modifier
 ) {
-    if (!AdConfig.isAdsEnabled) return
+    // Without UMP consent clearance, no ad request may be issued.
+    if (!AdConfig.canShowAdsFlow()) return
 
     Box(
         modifier = modifier

@@ -1,6 +1,6 @@
 # Terms of Service
 
-**Last Updated: October 2026**
+**Last Updated: November 2026**
 
 Welcome to **Pick One! – Would You Rather**, provided by **ViveScript Solutions LLC** ("Company", "we", "us", or "our").
 
@@ -43,5 +43,5 @@ For any inquiries concerning these Terms of Service, please contact:
 
 **ViveScript Solutions LLC**  
 Website: [https://www.vivescriptsolutions.com/](https://www.vivescriptsolutions.com/)  
-Email: `support@vivescriptsolutions.com`  
+Email: `privacy@vivescriptsolutions.com`  
 Copyright © 2026 ViveScript Solutions LLC.

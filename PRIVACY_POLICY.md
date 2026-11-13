@@ -1,6 +1,6 @@
 # Privacy Policy for Pick One! – Would You Rather
 
-**Last Updated: October 2026**
+**Last Updated: November 2026**
 
 **ViveScript Solutions LLC** ("Company", "we", "our", or "us") is dedicated to protecting your personal privacy. This Privacy Policy details our privacy practices regarding our mobile application **Pick One! – Would You Rather** (the "Application").
 
@@ -37,6 +37,8 @@ The Application integrates the Google Mobile Ads SDK (AdMob) to display non-intr
 - **Data Processed by Google Play Services / AdMob:** Google AdMob may process pseudonymous device identifiers (such as Android Advertising ID), general IP address for diagnostic coarse geo-location, and diagnostic/performance telemetry for fraud prevention and ad serving.
 - **Privacy Practices:** All advertising transmission is encrypted in transit using HTTPS/TLS. For details on how Google processes advertising data, please review [Google's Privacy & Terms](https://policies.google.com/technologies/ads).
 - **No Personal Profiling by App:** We do not associate AdMob identifiers with any personal user data or names.
+- **Consent Management (UMP):** Before any ad loads, the app presents Google's consent message where required (EEA/UK/Switzerland, US regulated states). You can review or change your choices at any time from the app's About dialog ("Ad Privacy Options").
+- You can reset your Advertising ID or opt out of personalized ads in Android system settings (*Settings > Google > Ads*).
 
 ---
 
@@ -52,7 +54,7 @@ No dangerous runtime permissions (such as Location, Contacts, Camera, Microphone
 
 ### 6. Children's Privacy
 
-Because the Application features curated, family-friendly questions and does not collect personal identifiers, it complies with COPPA (Children’s Online Privacy Protection Act) and the Google Play Families Policy.
+The Application is intended for users aged 13 and older and is not enrolled in Google Play's Designed for Families program. We do not knowingly collect personal data from children under 13 — indeed, the app collects no personal data from anyone, as described in Section 1. If you believe a child has provided personal information through a third-party service reached via this app (such as an ad network), please contact us and we will direct you to the appropriate third-party controls.
 
 ---
 

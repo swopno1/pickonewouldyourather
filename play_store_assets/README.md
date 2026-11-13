@@ -11,13 +11,19 @@ This directory contains high-resolution marketing assets ready for Google Play C
 │   └── feature-graphic.png           (1024x500 PNG, Google Play promotional feature banner)
 │
 ├── phone/
-│   ├── phone-01.png                  (1080x1920 PNG, Main question gameplay screen)
-│   ├── phone-02.png                  (1080x1920 PNG, Live vote statistics & results)
-│   ├── phone-03.png                  (1080x1920 PNG, One-tap WhatsApp/Instagram/TikTok share)
-│   └── phone-04.png                  (1080x1920 PNG, Category selection dialog)
+│   ├── phone-01.png                  (1080x1920 PNG no-alpha, Main question gameplay screen — VERIFIED real UI)
+│   ├── phone-02.png                  (MISSING — capture vote reveal on-device)
+│   ├── phone-03.png                  (MISSING — capture share sheet on-device)
+│   └── phone-04.png                  (MISSING — capture category picker + BN mode on-device)
 │
 └── tablet/
-    └── tablet-01.png                 (1920x1080 PNG, Responsive landscape tablet side-by-side layout)
+    └── (MISSING — capture tablet layout on-device)
+
+> ⚠️ STATUS 2026-11-12: phone-02/03/04 + tablet-01 were AI mockups showing
+> nonexistent UI (bottom nav bars, fake "1.2M vote" counts, a NEXT QUESTION
+> button the app lacks) and were DELETED as a misleading-listing risk
+> (recoverable from git history). Capture real UI on a device before
+> submission. No device was attached during this modernization.
 ```
 
 ### Notice:

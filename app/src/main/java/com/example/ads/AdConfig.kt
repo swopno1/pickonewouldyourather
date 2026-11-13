@@ -12,11 +12,7 @@ object AdConfig {
     // AdMob App ID
     const val APP_ID = "ca-app-pub-5222053984568989~7046666712"
 
-    // Active Ad Unit IDs
-    const val BANNER_AD_UNIT_ID = "ca-app-pub-5222053984568989/7491363151"
-    const val INTERSTITIAL_AD_UNIT_ID = "ca-app-pub-5222053984568989/5949207462"
-
-    // Official Google Test Fallbacks (if needed for testing in emulators/debug)
+    // Official Google Test IDs (kept for explicit emulator/test-device use)
     const val TEST_BANNER_AD_UNIT_ID = "ca-app-pub-3940256099942544/6300978111"
     const val TEST_INTERSTITIAL_AD_UNIT_ID = "ca-app-pub-3940256099942544/1033173712"
 
@@ -27,20 +23,25 @@ object AdConfig {
     const val INTERSTITIAL_INTERVAL_QUESTIONS = 5
 
     /**
-     * Returns the appropriate Banner Ad Unit ID based on the build configuration.
-     * Uses official Google test ad IDs in debug builds to prevent invalid traffic policy violations
-     * and emulator creative script errors.
+     * Resolves the active banner ad unit ID (demo in debug, live in release).
+     * Live IDs come from per-variant BuildConfig fields so they can never
+     * ship in debug binaries and taint live ad traffic.
      */
-    fun getBannerAdUnitId(): String {
-        return if (com.example.BuildConfig.DEBUG) TEST_BANNER_AD_UNIT_ID else BANNER_AD_UNIT_ID
-    }
+    fun getBannerAdUnitId(): String = com.example.BuildConfig.ADMOB_BANNER_AD_UNIT_ID
 
     /**
-     * Returns the appropriate Interstitial Ad Unit ID based on the build configuration.
-     * Uses official Google test ad IDs in debug builds to prevent invalid traffic policy violations
-     * and emulator creative script errors.
+     * Resolves the active interstitial ad unit ID (demo in debug, live in release).
      */
-    fun getInterstitialAdUnitId(): String {
-        return if (com.example.BuildConfig.DEBUG) TEST_INTERSTITIAL_AD_UNIT_ID else INTERSTITIAL_AD_UNIT_ID
+    fun getInterstitialAdUnitId(): String = com.example.BuildConfig.ADMOB_INTERSTITIAL_AD_UNIT_ID
+
+    @Volatile
+    private var adsConsentGranted = false
+
+    /** Called from MainActivity once UMP consent resolves. */
+    fun setAdsConsent(granted: Boolean) {
+        adsConsentGranted = granted
     }
+
+    /** True only when ads are enabled and UMP consent allows ad requests. */
+    fun canShowAdsFlow(): Boolean = isAdsEnabled && adsConsentGranted
 }

@@ -7,18 +7,22 @@
 
 A fun, lightweight, offline **Would You Rather?** Android party game developed by **ViveScript Solutions LLC**. Players choose between hilarious, difficult, surprising, or thought-provoking options, discover community vote percentages, and share spicy dilemmas with friends across social media.
 
+**Version:** 3.0 (VersionCode 3)  
+**Package ID:** `com.vivescriptsolutions.pickonewouldyourather`  
+**Google Play:** [Pick One! – Would You Rather](https://play.google.com/store/apps/details?id=com.vivescriptsolutions.pickonewouldyourather)
+
 ---
 
 ## 🌟 Key Features
 
-- **Instant Offline Play:** Works 100% offline without accounts, logins, internet connection, or external APIs.
+- **Instant Offline Play:** Gameplay works fully offline without accounts, logins, or external APIs (ads require internet).
 - **Vibrant Material 3 Design:** Rich, contrasting choice cards with smooth animations, satisfying tactile feedback, and intuitive navigation.
 - **Diverse Curated Categories:** Funny & Silly, Food & Treats, Superpowers & Magic, Everyday Life, Impossible Choices, Travel & Adventure, and Animals & Nature.
 - **Bilingual Support (English & Bangla):** Switch seamlessly between English and বাংলা with a single tap.
 - **Built-in Social Sharing:** Share questions directly to WhatsApp, Instagram Stories, TikTok, or copy them to your clipboard.
 - **Adaptive Layout:** Responsive design that transitions smoothly between vertical phones and horizontal tablet / foldable screens.
 - **Audio & Haptic Feedback:** Cheerful sound tones and gentle vibration with an instant mute toggle.
-- **AdMob Ready:** Clean `AdConfig` architecture supporting the latest Google Mobile Ads SDK with official test IDs.
+- **AdMob + UMP Consent:** Clean `AdConfig` architecture with Google Mobile Ads SDK 23.6.0 gated by UMP consent SDK 4.0.0; per-variant ad units (demo-only in debug).
 
 ---
 
