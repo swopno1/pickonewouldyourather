@@ -4,7 +4,7 @@
 **Package Name:** `com.vivescriptsolutions.pickonewouldyourather`  
 **Current Release:** Version Code `3`, Version Name `3.0`  
 **Developer:** ViveScript Solutions LLC  
-**Support Email:** privacy@vivescriptsolutions.com  
+**Support Email:** support@vivescriptsolutions.com  
 **Privacy Policy URL:** https://www.vivescriptsolutions.com/en/apps/pick-one *(assumed from sibling-app pattern — human must confirm the page is live)*  
 **Terms of Service URL:** https://www.vivescriptsolutions.com/en/apps/pick-one/terms *(assumed — human must confirm)*
 
@@ -144,7 +144,7 @@ Google Play requires all developers distributing in the European Economic Area (
 
 - **Recommended Selection:** **"Yes, I am a trader"** (for ViveScript Solutions LLC)  
   - Legal Name: `ViveScript Solutions LLC`
-  - Email: `privacy@vivescriptsolutions.com`
+  - Email: `support@vivescriptsolutions.com`
   - Website: `https://www.vivescriptsolutions.com/`
   - Address: `1209 Orange Street, Wilmington, DE 19801, USA`
 - See full legal analysis in `EU_TRADE_POLICY_COMPLIANCE.md`.

@@ -43,5 +43,5 @@ For any inquiries concerning these Terms of Service, please contact:
 
 **ViveScript Solutions LLC**  
 Website: [https://www.vivescriptsolutions.com/](https://www.vivescriptsolutions.com/)  
-Email: `privacy@vivescriptsolutions.com`  
+Email: `support@vivescriptsolutions.com`  
 Copyright © 2026 ViveScript Solutions LLC.
